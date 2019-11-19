@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace customer_relationship
@@ -28,5 +29,14 @@ namespace customer_relationship
                 LastOrder = order.Purchased;
             allOrders.Add(order);
         }
+
+        public decimal ComputeLoyaltyDiscount()
+        {
+            if (PreviousOrders.Any() == false)
+                return 0.50m;
+            else
+                return ICustomer.DefaultLoyaltyDiscount(this);
+        }
+
     }
 }

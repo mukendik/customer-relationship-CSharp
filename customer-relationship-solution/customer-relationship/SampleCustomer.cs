@@ -20,5 +20,13 @@ namespace customer_relationship
         public string Name { get; }
 
         public IDictionary<DateTime, string> reminders = new Dictionary<DateTime, string>();
+        public IDictionary<DateTime, string> Reminders => reminders;
+
+        public void AddOrder(IOrder order)
+        {
+            if (order.Purchased > (LastOrder ?? DateTime.MinValue))
+                LastOrder = order.Purchased;
+            allOrders.Add(order);
+        }
     }
 }

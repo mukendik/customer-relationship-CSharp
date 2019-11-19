@@ -6,8 +6,11 @@ namespace customer_relationship
 {
     class SampleOrder : IOrder
     {
-        public DateTime Purchased => throw new NotImplementedException();
+        public DateTime Purchased { get; }
 
-        public decimal Cost => throw new NotImplementedException();
+        public decimal Cost { get; }
+
+        public SampleOrder(DateTime purchase, decimal cost) =>
+            (Purchased, Cost) = (purchase, cost);
     }
 }

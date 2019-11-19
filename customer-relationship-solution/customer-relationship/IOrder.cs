@@ -4,7 +4,9 @@ using System.Text;
 
 namespace customer_relationship
 {
-    interface Interface1
+    interface IOrder
     {
+        DateTime Purchased { get; }
+        decimal Cost { get; }
     }
 }

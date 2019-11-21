@@ -25,28 +25,28 @@ namespace customer_relationship
         //}
 
         // Version 2: 
-        public static void SetLoyaltyThresholds(    
-            TimeSpan ago,     
-            int minimumOrders = 10,     
+        public void SetLoyaltyThresholds(
+            TimeSpan ago,
+            int minimumOrders = 10,
             decimal percentageDiscount = 0.10m
-            ) 
-        {    
-            length = ago;    
-            orderCount = minimumOrders;    
-            discountPercent = percentageDiscount; 
-        } 
-        
-        private static TimeSpan length = new TimeSpan(365 * 2, 0,0,0); 
+            )
+        {
+            length = ago;
+            orderCount = minimumOrders;
+            discountPercent = percentageDiscount;
+        }
+
+        private static TimeSpan length = new TimeSpan(365 * 2, 0, 0, 0);
         // two years 
-        private static int orderCount = 10; 
+        private static int orderCount = 10;
         private static decimal discountPercent = 0.10m;
 
         public decimal ComputeLoyaltyDiscount() => DefaultLoyaltyDiscount(this);
-        protected static decimal DefaultLoyaltyDiscount(ICustomer c)
+        protected static decimal DefaultLoyaltyDiscount(ICustomer c) // fonctionnalité par défaut
         {
             DateTime start = DateTime.Now - length;
-            if ((c.DateJoined < start) && (c.PreviousOrders.Count() > orderCount)) 
-            { 
+            if ((c.DateJoined < start) && (c.PreviousOrders.Count() > orderCount))
+            {
                 return discountPercent;
             }
             return 0;
@@ -54,6 +54,16 @@ namespace customer_relationship
 
 
 
+
+    }
+
+    interface IInterface
+    {
+        int M1() { return 42; }
+    }
+
+    public class AClass : IInterface
+    {
 
     }
 }

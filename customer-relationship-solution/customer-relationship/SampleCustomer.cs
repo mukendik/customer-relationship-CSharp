@@ -30,7 +30,7 @@ namespace customer_relationship
             allOrders.Add(order);
         }
 
-        public decimal ComputeLoyaltyDiscount()
+        public decimal ComputeLoyaltyDiscount()  //fonctionnalité discrète
         {
             if (PreviousOrders.Any() == false)
                 return 0.50m;

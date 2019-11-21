@@ -9,5 +9,16 @@ namespace customer_relationship.LightsAPIs
         void SwitchOn(); // default interface
         void SwitchOff();
         bool IsOn();
+
+        public enum PowerStatus
+        {
+            NoPower,
+            ACPower,
+            FullBattery,
+            MidBattery,
+            LowBattery
+        }
+
+        public PowerStatus Power() => PowerStatus.NoPower;
     }
 }

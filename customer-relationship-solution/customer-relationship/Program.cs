@@ -40,78 +40,101 @@ namespace customer_relationship
 
     public class Program
     {
-        static void Main(string[] args)
+        //static void Main(string[] args)
+        //{
+        //    #region sebLMain
+        //    //var myinstance = new FancyClass()
+        //    //{
+        //    //    Prop1 = 42,
+        //    //    Prop2 = 3.14
+        //    //};
+
+        //    //var instance = new AClass();
+
+        //    //myinstance.TestValue(43);
+
+        //    //Console.WriteLine(((IInterface)instance).M1());
+
+
+        //    //var c = new MyContainer();
+
+        //    //c.Element = 42;
+        //    //c.Element = "Hey";
+
+        //    //var gc = new MyGenericContainer<int>();
+        //    //gc.Element = 42;
+        //    //var gc2 = new MyGenericContainer<string>();
+        //    //gc2.Element = "coucou";
+
+        //    //var gc3 = new MyGenericContainer<FancyClass>();
+        //    //gc3.Element.Prop1 = 3;
+
+        //    #endregion sebLMain
+
+        //    #region customer-relationship 
+        //    //SampleCustomer c = new SampleCustomer("customer one", new DateTime(2018, 5, 31))
+        //    //    {
+        //    //        Reminders =
+        //    //        {
+        //    //            { new DateTime(2010, 08, 12), "childs's birthday" },
+        //    //            { new DateTime(1012, 11, 15), "anniversary" } }
+        //    //    };
+
+        //    //    SampleCustomer c2 = new SampleCustomer("customer two", new DateTime(2018, 5, 31))
+        //    //    {
+        //    //        Reminders =
+        //    //        {
+        //    //            { new DateTime(2010, 08, 12), "childs's birthday" },
+        //    //            { new DateTime(1012, 11, 15), "anniversary" } }
+        //    //    };
+
+        //    //    SampleOrder o = new SampleOrder(new DateTime(2018, 6, 1), 5m); c.AddOrder(o);
+        //    //    //o = new SampleOrder(new DateTime(2017, 7, 4), 25m); c.AddOrder(o);
+
+        //    //    // Check the discount (version 1): 
+        //    //    //ICustomer theCustomer = c;
+        //    //    //Console.WriteLine($"Current discount: {theCustomer.ComputeLoyaltyDiscount()}");
+
+        //    //    // test the set loyalty threshold (version 2): 
+        //    //    //ICustomer.SetLoyaltyThresholds(new TimeSpan(30, 0, 0, 0), 1, 0.25m);
+        //    //    //Console.WriteLine($"Current discount: {theCustomer.ComputeLoyaltyDiscount()}");
+
+        //    //    // test new client's first order
+        //    //    //ICustomer theCustomer2 = c2;
+        //    //   public int entier { get; set; }
+
+
+
+        //    //Console.WriteLine($"Current discount:{theCustomer2.ComputeLoyaltyDiscount()}");
+
+
+        //    //}
+        //    #endregion customer-relationship 
+           
+
+
+        //}
+        #region LightAPITests
+        static async Task Main(string[] args)
         {
-            #region sebLMain
-            var myinstance = new FancyClass()
-            {
-                Prop1 = 42,
-                Prop2 = 3.14
-            };
-
-            var instance = new AClass();
-
-            myinstance.TestValue(43);
-
-            Console.WriteLine(((IInterface)instance).M1());
-            
-
-            var c = new MyContainer();
-
-            c.Element = 42;
-            c.Element = "Hey";
-
-            var gc = new MyGenericContainer<int>();
-            gc.Element = 42;
-            var gc2 = new MyGenericContainer<string>();
-            gc2.Element = "coucou";
-
-            var gc3 = new MyGenericContainer<FancyClass>();
-            gc3.Element.Prop1 = 3;
-
-            #endregion
-
-            //SampleCustomer c = new SampleCustomer("customer one", new DateTime(2018, 5, 31))
-            //    {
-            //        Reminders =
-            //        {
-            //            { new DateTime(2010, 08, 12), "childs's birthday" },
-            //            { new DateTime(1012, 11, 15), "anniversary" } }
-            //    };
-
-            //    SampleCustomer c2 = new SampleCustomer("customer two", new DateTime(2018, 5, 31))
-            //    {
-            //        Reminders =
-            //        {
-            //            { new DateTime(2010, 08, 12), "childs's birthday" },
-            //            { new DateTime(1012, 11, 15), "anniversary" } }
-            //    };
-
-            //    SampleOrder o = new SampleOrder(new DateTime(2018, 6, 1), 5m); c.AddOrder(o);
-            //    //o = new SampleOrder(new DateTime(2017, 7, 4), 25m); c.AddOrder(o);
-
-            //    // Check the discount (version 1): 
-            //    //ICustomer theCustomer = c;
-            //    //Console.WriteLine($"Current discount: {theCustomer.ComputeLoyaltyDiscount()}");
-
-            //    // test the set loyalty threshold (version 2): 
-            //    //ICustomer.SetLoyaltyThresholds(new TimeSpan(30, 0, 0, 0), 1, 0.25m);
-            //    //Console.WriteLine($"Current discount: {theCustomer.ComputeLoyaltyDiscount()}");
-
-            //    // test new client's first order
-            //    //ICustomer theCustomer2 = c2;
-            //   public int entier { get; set; }
-
-          
-
-            //Console.WriteLine($"Current discount:{theCustomer2.ComputeLoyaltyDiscount()}");
-
-
-            //}
-
+            Console.WriteLine("Testing the overhead light");
+            var overhead = new OverheadLight();
+            await TestLightCapabilities(overhead);
+            Console.WriteLine();
+            Console.WriteLine("Testing the halogen light");
+            var halogen = new HalogenLight();
+            await TestLightCapabilities(halogen);
+            Console.WriteLine();
+            Console.WriteLine("Testing the LED light");
+            var led = new LEDLight();
+            await TestLightCapabilities(led);
+            Console.WriteLine();
+            Console.WriteLine("Testing the fancy light");
+            var fancy = new ExtraFancyLight();
+            await TestLightCapabilities(fancy);
+            Console.WriteLine();
 
         }
-        #region LightAPITests
         private static async Task TestLightCapabilities(ILight light)
         {
             // Perform basic tests:

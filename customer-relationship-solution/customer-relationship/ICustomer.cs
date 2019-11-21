@@ -13,6 +13,7 @@ namespace customer_relationship
         string Name { get; }
         IDictionary<DateTime, string> Reminders { get; }
 
+        #region version 1
         //// Version 1: 
         //public decimal ComputeLoyaltyDiscount()
         //{    
@@ -23,7 +24,8 @@ namespace customer_relationship
         //    }   
         //    return 0;
         //}
-
+        #endregion version 1
+        #region version 2
         // Version 2: 
         public void SetLoyaltyThresholds(
             TimeSpan ago,
@@ -51,12 +53,12 @@ namespace customer_relationship
             }
             return 0;
         }
-
+        #endregion version 2
 
 
 
     }
-
+    #region testsSebL
     interface IInterface
     {
         int M1() { return 42; }
@@ -66,4 +68,5 @@ namespace customer_relationship
     {
 
     }
+    #endregion
 }

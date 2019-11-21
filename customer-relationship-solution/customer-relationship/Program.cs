@@ -40,6 +40,7 @@ namespace customer_relationship
 
     public class Program
     {
+        //#region customer-relationship
         //static void Main(string[] args)
         //{
         //    #region sebLMain
@@ -71,7 +72,7 @@ namespace customer_relationship
 
         //    #endregion sebLMain
 
-        //    #region customer-relationship 
+            
         //    //SampleCustomer c = new SampleCustomer("customer one", new DateTime(2018, 5, 31))
         //    //    {
         //    //        Reminders =
@@ -110,12 +111,12 @@ namespace customer_relationship
 
         //    //}
         //    #endregion customer-relationship 
-           
 
 
-        //}
-        #region LightAPITests
-        static async Task Main(string[] args)
+
+            //}
+            #region LightAPITests
+            static async Task Main(string[] args)
         {
             Console.WriteLine("Testing the overhead light");
             var overhead = new OverheadLight();

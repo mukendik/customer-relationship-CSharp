@@ -4,7 +4,7 @@ using System.Text;
 
 namespace customer_relationship.LightsAPIs
 {
-    class OverheadLight : ILight, ITimerLight
+    class OverheadLight : ILight, ITimerLight, IBlinkingLight
     {
         private bool isOn;
 

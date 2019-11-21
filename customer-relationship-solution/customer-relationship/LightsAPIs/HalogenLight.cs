@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace customer_relationship.LightsAPIs
 {
-    public class HalogenLight : ITimerLight
+    public class HalogenLight : ITimerLight, IBlinkingLight
     {
         private enum HalogenLightState
         {

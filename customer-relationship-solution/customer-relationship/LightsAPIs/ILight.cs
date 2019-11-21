@@ -6,7 +6,7 @@ namespace customer_relationship.LightsAPIs
 {
     interface ILight
     {
-        void SwitchOn();
+        void SwitchOn(); // default interface
         void SwitchOff();
         bool IsOn();
     }

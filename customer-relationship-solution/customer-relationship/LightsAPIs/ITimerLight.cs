@@ -7,8 +7,9 @@ namespace customer_relationship.LightsAPIs
 {
     interface ITimerLight : ILight
     {
-     //   Task TurnOnFor(int duration);
+        //   Task TurnOnFor(int duration);
 
+        // extend method
         public async Task TurnOnFor(int duration)
         {
             Console.WriteLine("Using the default interface method for the ITimerLight.TurnOnFor.");

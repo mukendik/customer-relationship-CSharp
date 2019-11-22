@@ -4,12 +4,7 @@ using System.Text;
 
 namespace customer_relationship.NullableIntroduction.survey
 {
-    public enum QuestionType
-    {
-        YesNo,
-        Number,
-        Text
-    }
+ 
 
     public class SurveyQuestion
     {

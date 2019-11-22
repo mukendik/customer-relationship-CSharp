@@ -1,4 +1,5 @@
 ﻿using customer_relationship.LightsAPIs;
+using customer_relationship.NullableIntroduction.survey;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -185,7 +186,7 @@ namespace customer_relationship
 
         //    Console.WriteLine($"The first word is : {words[0]}"); // with simple index
         //    Console.WriteLine($"The Last word is : {words[^1]}"); // with index from end operator
-           
+
         //    string[] quickBrownFox = words[1..4];
         //    foreach (var word in quickBrownFox)
         //        Console.Write($"< {word} >");
@@ -224,12 +225,12 @@ namespace customer_relationship
         //    int z = 36;
         //    Console.WriteLine($"{numbers[^x]} is the same as {numbers[numbers.Length - x]}");
         //    Console.WriteLine($"{numbers[x..y].Length} is the same as {y - x}");
-            
+
         //    Console.WriteLine("numbers[x..y] and numbers[y..z] are consecutive and disjoint:");
         //    Span<int> x_y = numbers[x..y];
         //    Span<int> y_z = numbers[y..z];
         //    Console.WriteLine($"\tnumbers[x..y] is {x_y[0]} through {x_y[^1]}, numbers[y..z] is {y_z[0]} through { y_z[^1]}");
-            
+
         //    Console.WriteLine("numbers[x..^x] removes x elements at each end:");
         //    Span<int> x_x = numbers[x..^x];
         //    Console.WriteLine($"\tnumbers[x..^x] starts with {x_x[0]} and ends with {x_x[^1]}");
@@ -265,13 +266,20 @@ namespace customer_relationship
         //    int[] Sequence(int count) =>
         //    Enumerable.Range(0, count).Select(x => (int)(Math.Sqrt(x) * 100)).ToArray();
         //}
-        
-        #endregion indices and ranges
 
+        #endregion indices and ranges
+        #region Nullable and non nullable reference on survey
         static void Main(string[] args)
         {
+            var surveyRun = new SurveyRun();
+            surveyRun.AddQuestion(QuestionType.YesNo, "Has your code ever thrown a NullReferenceException?");
+            surveyRun.AddQuestion(new SurveyQuestion(QuestionType.Number, "How many times (to the nearest 100) has that happened ? "));
+            surveyRun.AddQuestion(QuestionType.Text, "What is your favorite color?");
 
+            surveyRun.AddQuestion(QuestionType.Text, default);
         }
+
+        #endregion Nullable and non nullable reference on survey
     }
 }
 

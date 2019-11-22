@@ -43,7 +43,7 @@ namespace customer_relationship
         #region customer-relationship
         //static void Main(string[] args)
         //{
-           #region sebLMain
+        #region sebLMain
         //    //var myinstance = new FancyClass()
         //    //{
         //    //    Prop1 = 42,
@@ -70,9 +70,9 @@ namespace customer_relationship
         //    //var gc3 = new MyGenericContainer<FancyClass>();
         //    //gc3.Element.Prop1 = 3;
 
-          #endregion sebLMain
+        #endregion sebLMain
 
-            
+
         //    //SampleCustomer c = new SampleCustomer("customer one", new DateTime(2018, 5, 31))
         //    //    {
         //    //        Reminders =
@@ -110,10 +110,10 @@ namespace customer_relationship
 
 
         //    //}
-       #endregion customer-relationship 
+        #endregion customer-relationship 
 
-            //}
-            #region LightAPITests
+        //}
+        #region LightAPITests
         //    static async Task Main(string[] args)
         //{
         //    Console.WriteLine("Testing the overhead light");
@@ -165,7 +165,30 @@ namespace customer_relationship
 
         #endregion LightAPITests
 
+        #region indices and ranges
+        static void Main(string[] args)
+        {
+            string[] words = new string[]
+            {
+                // index from start index from end
+                "The", // 0 ^9
+                "quick", // 1 ^8
+                "brown", // 2 ^7
+                "fox", // 3 ^6
+                "jumped", // 4 ^5
+                "over", // 5 ^4
+                "the", // 6 ^3
+                "lazy", // 7 ^2
+                "dog" // 8 ^1
+            }; // 9 (or words.Length) ^0
 
+            Console.WriteLine($"The first word is : {words[0]}"); // with simple index
+            Console.WriteLine($"The Last word is : {words[^1]}"); // with index from end operator
+        }
+        
+        
+
+        #endregion indices and ranges
     }
 }
 

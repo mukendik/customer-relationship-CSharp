@@ -277,6 +277,9 @@ namespace customer_relationship
             surveyRun.AddQuestion(QuestionType.Text, "What is your favorite color?");
 
             surveyRun.AddQuestion(QuestionType.Text, default);
+
+            surveyRun.PerformSurvey(50);
+
         }
 
         #endregion Nullable and non nullable reference on survey

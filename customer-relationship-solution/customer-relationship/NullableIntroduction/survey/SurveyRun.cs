@@ -10,5 +10,21 @@ namespace customer_relationship.NullableIntroduction.survey
         public void AddQuestion(QuestionType type, string question) =>
         AddQuestion(new SurveyQuestion(type, question));
         public void AddQuestion(SurveyQuestion surveyQuestion) => surveyQuestions.Add(surveyQuestion);
+
+
+        private List<SurveyResponse>? respondents;
+        public void PerformSurvey(int numberOfRespondents)
+        {
+            int repondentsConsenting = 0;
+            respondents = new List<SurveyResponse>();
+            while (repondentsConsenting < numberOfRespondents)
+            {
+                var respondent = SurveyResponse.GetRandomId();
+                if (respondent.AnswerSurvey(surveyQuestions))
+                    repondentsConsenting++;
+                respondents.Add(respondent);
+            }
+        }
+
     }
 }

@@ -280,6 +280,21 @@ namespace customer_relationship
 
             surveyRun.PerformSurvey(50);
 
+            foreach (var participant in surveyRun.AllParticipants)
+            {
+                Console.WriteLine($"Participant: {participant.Id}:");
+                if (participant.AnsweredSurvey)
+                {
+                    for (int i = 0; i < surveyRun.Questions.Count; i++)
+                    {
+                        var answer = participant.Answer(i);
+                        Console.WriteLine($"\t{surveyRun.GetQuestion(i)} : {answer}");
+                    }
+                }
+                else
+                    Console.WriteLine("\tNo responses");
+            }
+
         }
 
         #endregion Nullable and non nullable reference on survey

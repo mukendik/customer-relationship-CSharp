@@ -12,7 +12,8 @@ namespace customer_relationship.NullableIntroduction.survey
         public int Id { get; }
         public SurveyResponse(int id) => Id = id;
 
-        
+        public bool AnsweredSurvey => surveyResponses != null;
+        public string Answer(int index) => surveyResponses?.GetValueOrDefault(index) ?? "No answer";
 
         private Dictionary<int, string>? surveyResponses;
         public bool AnswerSurvey(IEnumerable<SurveyQuestion> questions)
@@ -60,5 +61,7 @@ namespace customer_relationship.NullableIntroduction.survey
                     return "Red. No, Green. Wait.. Blue... AAARGGGGGHHH!";
             }
         }
+
+       
     }
 }

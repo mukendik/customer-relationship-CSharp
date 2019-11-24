@@ -1,6 +1,8 @@
-﻿using customer_relationship.LightsAPIs;
+﻿using customer_relationship.classes_objects;
+using customer_relationship.LightsAPIs;
 using customer_relationship.NullableIntroduction.survey;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -42,6 +44,28 @@ namespace customer_relationship
 
     public class Program
     {
+
+     #region classes and objects
+        static void Main(string[] args)
+        {
+
+            Expression e = new Operation(
+            new VariableReference("x"),
+            '+',
+            new Constant(3));
+
+            Dictionary<string, object> vars = new Dictionary<string, object>();
+            vars["x"] = 3;
+            vars["y"] = 5;
+            Console.WriteLine(e.Evaluate(vars)); // Outputs "21"
+            vars["x"] = 1.5;
+            vars["y"] = 9;
+            Console.WriteLine(e.Evaluate(vars)); // Outputs "16.5"
+        }
+
+        #endregion classes and objects
+
+
         #region customer-relationship
         //static void Main(string[] args)
         //{
@@ -269,35 +293,36 @@ namespace customer_relationship
 
         #endregion indices and ranges
         #region Nullable and non nullable reference on survey
-        static void Main(string[] args)
-        {
-            var surveyRun = new SurveyRun();
-            surveyRun.AddQuestion(QuestionType.YesNo, "Has your code ever thrown a NullReferenceException?");
-            surveyRun.AddQuestion(new SurveyQuestion(QuestionType.Number, "How many times (to the nearest 100) has that happened ? "));
-            surveyRun.AddQuestion(QuestionType.Text, "What is your favorite color?");
+        //    static void Main(string[] args)
+        //    {
+        //        var surveyRun = new SurveyRun();
+        //        surveyRun.AddQuestion(QuestionType.YesNo, "Has your code ever thrown a NullReferenceException?");
+        //        surveyRun.AddQuestion(new SurveyQuestion(QuestionType.Number, "How many times (to the nearest 100) has that happened ? "));
+        //        surveyRun.AddQuestion(QuestionType.Text, "What is your favorite color?");
 
-            surveyRun.AddQuestion(QuestionType.Text, default);
+        //        surveyRun.AddQuestion(QuestionType.Text, default);
 
-            surveyRun.PerformSurvey(50);
+        //        surveyRun.PerformSurvey(50);
 
-            foreach (var participant in surveyRun.AllParticipants)
-            {
-                Console.WriteLine($"Participant: {participant.Id}:");
-                if (participant.AnsweredSurvey)
-                {
-                    for (int i = 0; i < surveyRun.Questions.Count; i++)
-                    {
-                        var answer = participant.Answer(i);
-                        Console.WriteLine($"\t{surveyRun.GetQuestion(i)} : {answer}");
-                    }
-                }
-                else
-                    Console.WriteLine("\tNo responses");
-            }
+        //        foreach (var participant in surveyRun.AllParticipants)
+        //        {
+        //            Console.WriteLine($"Participant: {participant.Id}:");
+        //            if (participant.AnsweredSurvey)
+        //            {
+        //                for (int i = 0; i < surveyRun.Questions.Count; i++)
+        //                {
+        //                    var answer = participant.Answer(i);
+        //                    Console.WriteLine($"\t{surveyRun.GetQuestion(i)} : {answer}");
+        //                }
+        //            }
+        //            else
+        //                Console.WriteLine("\tNo responses");
+        //        }
 
-        }
+        //    }
 
         #endregion Nullable and non nullable reference on survey
+
     }
 }
 

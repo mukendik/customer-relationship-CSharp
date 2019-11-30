@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace customer_relationship
 {
     #region sebL
@@ -49,18 +50,34 @@ namespace customer_relationship
         static void Main(string[] args)
         {
 
-            Expression e = new Operation(
-            new VariableReference("x"),
-            '+',
-            new Constant(3));
+            // //Expression e = new Operation(
+            // //new VariableReference("x"),
+            // //'+',
+            // //new Constant(3));
 
-            Dictionary<string, object> vars = new Dictionary<string, object>();
-            vars["x"] = 3;
-            vars["y"] = 5;
-            Console.WriteLine(e.Evaluate(vars)); // Outputs "21"
-            vars["x"] = 1.5;
-            vars["y"] = 9;
-            Console.WriteLine(e.Evaluate(vars)); // Outputs "16.5"
+            // Expression e = new Operation(
+            //new VariableReference("x"),
+            //'*',
+            //new Operation(
+            //new VariableReference("y"),
+            //'+',
+            //new Constant(2)
+            //)
+            //);
+
+            // Dictionary<string, object> vars = new Dictionary<string, object>();
+            // vars["x"] = 3;
+            // vars["y"] = 5;
+            // Console.WriteLine(e.Evaluate(vars)); // Outputs "21"
+            // vars["x"] = 1.5;
+            // vars["y"] = 9;
+            // Console.WriteLine(e.Evaluate(vars)); // Outputs "16.5"
+           
+          //  OverloadingExample.UsageExample();
+
+            MyList<string> list1 = new MyList<string>();
+            MyList<string> list2 = new MyList<string>(10);
+
         }
 
         #endregion classes and objects
